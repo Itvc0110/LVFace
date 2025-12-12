@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 from PIL import Image
+import torch
 from insightface.app import FaceAnalysis
 from insightface.utils import face_align
 
@@ -38,3 +39,4 @@ def batch_preprocess_images(batch_paths, swap_color_channel, device):
     if not imgs:
         return None, None
     return torch.cat(imgs, dim=0), spaths
+
