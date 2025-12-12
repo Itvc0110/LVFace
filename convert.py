@@ -7,7 +7,7 @@ from insightface.utils import face_align
 
 providers = ['CUDAExecutionProvider', 'CPUExecutionProvider'] if torch.cuda.is_available() else ['CPUExecutionProvider']
 app = FaceAnalysis(det_name='retinaface_r50_v1', providers=providers)
-app.prepare(ctx_id=0, det_thresh=0.5, det_size=(640, 640)
+app.prepare(ctx_id=0, det_thresh=0.5, det_size=(640, 640))
 
 def get_aligned_face_repo(image_path=None, rgb_pil_image=None, conf_thresh=0.5):
     if image_path:
@@ -40,5 +40,6 @@ def batch_preprocess_images(batch_paths, swap_color_channel, device):
     if not imgs:
         return None, None
     return torch.cat(imgs, dim=0), spaths
+
 
 
