@@ -199,7 +199,7 @@ def process_video(args, model, device):
         ft_ = time.time() - fs
         ft.append(ft_)
         afps = 1 / (sum(ft) / len(ft)) if ft else 0
-        cv2.putText(of, f"FPS: {afps:.1f}", (w - 150, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
+        cv2.putText(of, f"FPS: {afps:.1f}", (w - 150, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
         
         if 'cuda' in args.device:
             gu = torch.cuda.memory_allocated() / 1024**2
@@ -219,4 +219,5 @@ def process_video(args, model, device):
     cap.release()
     out.release()
     logging.info(f"Saved to {args.output_video_path}")
+
 
